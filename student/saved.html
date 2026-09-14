@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Saved Opportunities | PlaceMentor AI</title>
+
+<link rel="stylesheet" href="../assets/css/saved.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="savedContainer"></div>
+
+<script src="../assets/js/saved.js"></script>
+<script>
+
+const user =
+localStorage.getItem("loggedInUser");
+
+if(!user){
+
+    window.location.href =
+    "../auth/index.html";
+
+}
+
+</script>
+<div class="sidebar">
+
+    <div class="logo">
+        PLACEMENTOR
+    </div>
+
+    <nav>
+
+        <a href="dashboard.html">Dashboard</a>
+
+        <a href="../resume/index.html">
+            Resume Analyzer
+        </a>
+
+        <a href="jobs.html">
+            Jobs
+        </a>
+
+        <a href="internships.html">
+            Internships
+        </a>
+
+        <a href="events.html">
+            Events
+        </a>
+
+        <a href="hackathons.html">
+            Hackathons
+        </a>
+
+        <a href="profile.html">
+            Profile
+        </a>
+
+            <a href="saved.html">
+    Saved
+</a>
+
+<a href="recommendations.html">
+    Recommendations
+</a>
+
+<a href="#" onclick="logout()">
+    Logout
+</a>
+
+    </nav>
+
+</div>
+<div class="overlay" id="overlay"></div>
+<div class="main">
+<div class="mobile-header">
+
+    <button class="menu-btn" onclick="toggleSidebar()">
+        ☰
+    </button>
+
+    <div class="mobile-logo">
+        PLACEMENTOR
+    </div>
+
+</div>
+    <div class="topbar">
+
+        <h1>Saved Opportunities</h1>
+
+    </div>
+
+    <div class="saved-grid">
+
+        <div class="saved-card">
+
+            <span class="badge">
+                Job
+            </span>
+
+            <h2>
+                Frontend Developer
+            </h2>
+
+            <p>
+                Google • Hyderabad
+            </p>
+
+            <button>
+                View Details
+            </button>
+
+        </div>
+
+        <div class="saved-card">
+
+            <span class="badge">
+                Internship
+            </span>
+
+            <h2>
+                Software Engineering Intern
+            </h2>
+
+            <p>
+                Microsoft • Remote
+            </p>
+
+            <button>
+                View Details
+            </button>
+
+        </div>
+
+        <div class="saved-card">
+
+            <span class="badge">
+                Event
+            </span>
+
+            <h2>
+                AWS Cloud Workshop
+            </h2>
+
+            <p>
+                Online • Aug 25
+            </p>
+
+            <button>
+                View Details
+            </button>
+
+        </div>
+
+        <div class="saved-card">
+
+            <span class="badge">
+                Hackathon
+            </span>
+
+            <h2>
+                HackIndia 2026
+            </h2>
+
+            <p>
+                Prize Pool ₹1,00,000
+            </p>
+
+            <button>
+                View Details
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+function toggleSidebar(){
+
+    const sidebar = document.querySelector(".sidebar");
+    const overlay = document.getElementById("overlay");
+
+    sidebar.classList.toggle("show");
+    overlay.classList.toggle("show");
+
+}
+</script>
+
+<script>
+
+document.getElementById("overlay")
+.addEventListener("click", function(){
+
+    document.querySelector(".sidebar")
+    .classList.remove("show");
+
+    document.getElementById("overlay")
+    .classList.remove("show");
+
+});
+
+</script>
+
+<script>
+
+document.querySelectorAll(".sidebar a")
+.forEach(function(link){
+
+    link.addEventListener("click", function(){
+
+        document.querySelector(".sidebar")
+        .classList.remove("show");
+
+        document.getElementById("overlay")
+        .classList.remove("show");
+
+    });
+
+});
+
+</script>
+<script>
+function logout(){
+
+    localStorage.removeItem("loggedInUser");
+
+    window.location.href =
+    "../auth/login.html";
+
+}
+</script>
+</body>
+</html>

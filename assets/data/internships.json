@@ -1,0 +1,42 @@
+[
+{
+  "company": "Infosys",
+  "title": "Software Development Intern",
+  "location": "Remote",
+  "stipend": "Paid",
+  "skills": [
+    "Java",
+    "Python",
+    "SQL"
+  ],
+  "link": "https://infyspringboard.onwingspan.com/"
+},
+  {
+  "company": "Microsoft",
+  "title": "Software Engineer Intern",
+  "location": "Bangalore / Hyderabad",
+  "stipend": "Competitive (Paid)",
+  "skills": [
+    "HTML",
+    "CSS",
+    "JavaScript"
+  ],
+  "link": "https://careers.microsoft.com/students/us/en"
+},
+  {
+  "company": "AICTE",
+  "title": "National Internship Portal",
+  "location": "India (Remote / Hybrid / On-site)",
+  "stipend": "Paid & Unpaid",
+  "skills": [
+    "Engineering",
+    "AI",
+    "Data Science",
+    "Web Development",
+    "Java",
+    "Python",
+    "Communication"
+  ],
+  "link": "https://internship.aicte-india.org/"
+}
+]

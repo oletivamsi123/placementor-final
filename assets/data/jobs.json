@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "company": "Infosys",
+    "role": "Frontend Developer Intern",
+    "location": "Hyderabad",
+    "salary": "8 LPA",
+    "skills": "HTML, CSS, JavaScript, React",
+    "applyLink": "https://ibegin.tcs.com/iBegin/"
+  },
+
+  {
+    "id": 2,
+    "company": "Accenture",
+    "role": "Software Engineer",
+    "location": "Bangalore",
+    "salary": "18 LPA",
+    "skills": "Java, DSA, SQL",
+    "applyLink": "https://www.accenture.com/in-en/careers"
+  },
+
+  {
+     "id": 3,
+    "company": "Cognizant",
+    "role": "Java Developer",
+    "location": "Bangalore",
+    "salary": "18 LPA",
+    "skills": "Java, DSA, SQL",
+    "applyLink": "https://careers.cognizant.com/in/en"
+  }
+  ]

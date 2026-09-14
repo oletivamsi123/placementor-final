@@ -1,0 +1,386 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f172a, #111827, #1e1b4b);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+}
+
+/* =========================================
+   DESKTOP FIX: HIDE MOBILE HEADER & TOGGLE
+   ========================================= */
+.mobile-header,
+.menu-btn {
+    display: none;
+}
+
+/* =========================================
+   GLOBAL BUTTON ACTIONS
+   ========================================= */
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.actions button,
+.apply-btn {
+    width: 90px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 10px;
+    background: #3b82f6;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* =========================================
+   SIDEBAR (DESKTOP)
+   ========================================= */
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 30px 20px;
+    z-index: 9999;
+    transition: left 0.3s ease;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar nav a {
+    text-decoration: none;
+    color: #cbd5e1;
+    padding: 14px 16px;
+    border-radius: 12px;
+    transition: .3s;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: rgba(59, 130, 246, .2);
+    color: white;
+}
+
+/* =========================================
+   MAIN CONTENT
+   ========================================= */
+.main {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    padding: 35px;
+}
+
+/* TOPBAR */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.topbar h1 {
+    font-size: 1.5rem;
+}
+
+.search-box {
+    width: 320px;
+    padding: 12px 18px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+}
+
+.search-box::placeholder {
+    color: #94a3b8;
+}
+
+/* FILTERS */
+.filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.filters select {
+    padding: 12px 16px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    cursor: pointer;
+}
+
+.filters option {
+    background: #111827;
+}
+
+/* =========================================
+   INTERNSHIP GRID & CARDS
+   ========================================= */
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.job-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+    padding: 25px;
+    transition: .3s;
+}
+
+.job-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(59, 130, 246, .5);
+}
+
+.company {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 20px;
+    background: rgba(59, 130, 246, .2);
+    color: #93c5fd;
+    font-size: .9rem;
+    margin-bottom: 15px;
+}
+
+.job-card h2 {
+    margin-bottom: 10px;
+}
+
+.job-card p {
+    color: #94a3b8;
+    margin-bottom: 18px;
+}
+
+/* SKILLS */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.skills span {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: .85rem;
+}
+
+/* FOOTER */
+.job-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.job-footer h3 {
+    color: #22c55e;
+    font-size: 1.1rem;
+}
+
+.job-footer button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #3b82f6;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.job-footer button:hover {
+    background: #2563eb;
+}
+
+/* =========================================
+   MOBILE & TABLET RESPONSIVE 
+   (Cleaned up into a single block)
+   ========================================= */
+@media (max-width: 900px) {
+    /* Show Mobile Header & Menu Button */
+    .mobile-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        min-height: 60px;
+        margin-bottom: 25px;
+        width: 100%;
+    }
+
+    .menu-btn {
+        display: block;
+        position: fixed; /* ✅ Fixed position to prevent scrolling away */
+        left: 15px;
+        top: 15px;
+        z-index: 10001; /* Above sidebar */
+        background: #3b82f6;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 10px 14px;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+    .mobile-logo {
+        font-size: 24px;
+        font-weight: 700;
+        color: white;
+        text-align: center;
+    }
+
+    /* Turn Sidebar into Off-Canvas Slide Menu */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -280px; 
+        width: 260px;
+        height: 100vh;
+        background: rgba(15, 23, 42, 0.98);
+        overflow-y: auto;
+        z-index: 10000;
+        display: block;
+        padding-top: 80px; /* Space for menu button */
+        padding-bottom: 40px; /* Prevent logout getting stuck at bottom */
+    }
+
+    .sidebar.show {
+        left: 0;
+    }
+
+    .sidebar .logo {
+        display: none;
+    }
+
+    /* Adjust Main Content Area */
+    .main {
+        margin-left: 0;
+        width: 100%;
+        padding: 15px;
+    }
+
+    /* Adjust Topbar & Search */
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    /* Adjust Filters */
+    .filters {
+        flex-direction: column;
+    }
+
+    /* Adjust Grid to Single Column */
+    .jobs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* =========================================
+       ✅ SHRINK CARDS FOR MOBILE
+       ========================================= */
+    .job-card {
+        padding: 18px; /* Slimmer card padding */
+    }
+
+    .company {
+        padding: 6px 12px;
+        font-size: 0.8rem; /* Smaller company badge */
+        margin-bottom: 12px;
+    }
+
+    .job-card h2 {
+        font-size: 1.3rem; /* Smaller job title */
+        margin-bottom: 6px;
+    }
+
+    .job-card p {
+        font-size: 0.9rem; /* Smaller subtitle */
+        margin-bottom: 14px;
+    }
+
+    .skills {
+        margin-bottom: 15px;
+    }
+
+    .skills span {
+        padding: 6px 10px;
+        font-size: 0.75rem; /* Smaller skill pills */
+    }
+
+    .job-footer h3 {
+        font-size: 1rem; /* Smaller salary text */
+    }
+
+    /* Shrink the Save/Apply buttons */
+    .actions button,
+    .apply-btn {
+        width: 75px;
+        height: 36px;
+        font-size: 13px;
+        padding: 0; /* Remove inner padding so height/width controls it */
+    }
+}
+/* Overlay */
+
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background:rgba(0,0,0,.45);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:9998;
+}
+
+.overlay.show{
+    opacity:1;
+    visibility:visible;
+}

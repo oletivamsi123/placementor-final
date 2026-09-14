@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Profile | PlaceMentor AI</title>
+
+<link rel="stylesheet" href="../assets/css/profile.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<script>
+
+const user =
+localStorage.getItem("loggedInUser");
+
+if(!user){
+
+    window.location.href =
+    "../auth/index.html";
+
+}
+
+</script>
+
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+    <div class="logo">
+        PLACEMENTOR
+    </div>
+
+    <nav>
+
+        <a href="dashboard.html">Dashboard</a>
+
+        <a href="../resume/index.html">
+            Resume Analyzer
+        </a>
+
+        <a href="jobs.html">Jobs</a>
+
+        <a href="internships.html">Internships</a>
+
+        <a href="events.html">Events</a>
+
+        <a href="hackathons.html">Hackathons</a>
+
+        <a class="active" href="profile.html">
+            Profile
+        </a>
+
+             <a href="saved.html">
+    Saved
+</a>
+
+<a href="recommendations.html">
+    Recommendations
+</a>
+
+<a href="#" onclick="logout()">
+    Logout
+</a>
+
+    </nav>
+
+</div>
+<div class="overlay" id="overlay"></div>
+<!-- MAIN -->
+
+<div class="main">
+<div class="mobile-header">
+
+    <button class="menu-btn" onclick="toggleSidebar()">
+        ☰
+    </button>
+
+    <div class="mobile-logo">
+        PLACEMENTOR
+    </div>
+
+</div>
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+
+        <h1>
+            Student Profile
+        </h1>
+
+        <div class="avatar">
+            <span id="avatar"></span>
+        </div>
+
+    </div>
+
+    <!-- PROFILE HEADER -->
+
+    <div class="profile-header">
+
+        <div class="profile-photo">
+
+            <div class="photo-circle">
+                <span id="avatar2"></span>
+            </div>
+
+        </div>
+
+        <div>
+
+            <h2 id="fullName"></h2>
+
+            <p id="email"></p>
+
+         <button class="primary-btn" onclick="openModal()">
+    Edit Profile
+</button>
+
+        </div>
+
+    </div>
+
+    <!-- PROFILE GRID -->
+
+    <div class="profile-grid">
+
+        <!-- PERSONAL -->
+
+        <div class="card">
+
+            <h3>Personal Information</h3>
+
+<p>
+<strong>Phone:</strong>
+<span id="phoneText"></span>
+</p>
+
+<p>
+<strong>Gender:</strong>
+<span id="genderText">Not Added</span>
+</p>
+
+<p>
+<strong>Location:</strong>
+<span id="locationText"></span>
+</p>
+
+        </div>
+
+        <!-- ACADEMIC -->
+
+        <div class="card">
+
+          <h3>Academic Information</h3>
+
+<p>
+<strong>College:</strong>
+<span id="collegeText"></span>
+</p>
+
+<p>
+<strong>Branch:</strong>
+<span id="branchText"></span>
+</p>
+
+<p>
+<strong>CGPA:</strong>
+<span id="cgpaText"></span>
+</p>
+<p>
+<strong>Graduation:</strong>
+<span id="graduationText">Not Added</span>
+</p> 
+
+        </div>
+
+        <!-- SKILLS -->
+
+        <div class="card">
+
+            <h3>Skills</h3>
+
+           <div class="tags" id="skillsContainer">
+
+<span>No Skills Added</span>
+
+</div>
+
+        </div>
+
+        <!-- LINKS -->
+
+        <!-- LINKS -->
+
+<div class="card">
+
+    <h3>Professional Links</h3>
+
+    <div class="links-list">
+
+        <p>
+            <strong>LinkedIn:</strong>
+            <span id="linkedinText">Not Added</span>
+        </p>
+
+        <p>
+            <strong>GitHub:</strong>
+            <span id="githubText">Not Added</span>
+        </p>
+
+        <p>
+            <strong>Website:</strong>
+            <span id="websiteText">Not Added</span>
+        </p>
+
+    </div>
+
+</div>
+
+        <!-- RESUME -->
+
+        <div class="card">
+
+            <h3>Resume</h3>
+
+            <p>Resume Uploaded</p>
+
+            <button class="resume-btn">
+                View Resume
+            </button>
+
+        </div>
+
+        <!-- COMPLETION -->
+
+        <div class="card">
+
+            <h3>Profile Completion</h3>
+
+            <div class="progress">
+
+                <div class="progress-fill"></div>
+
+            </div>
+
+            <p>78% Complete</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+
+
+
+function logout(){
+
+localStorage.removeItem("loggedInUser");
+
+window.location.href="../auth/login.html";
+
+}
+
+</script>
+<div id="editModal" class="modal">
+
+    <div class="modal-content">
+
+        <h2>Edit Profile</h2>
+
+        <input type="text" id="nameInput" placeholder="Full Name">
+
+        <input type="text" id="phoneInput" placeholder="Phone Number">
+
+        <input type="text" id="collegeInput" placeholder="College">
+
+        <input type="text" id="branchInput" placeholder="Branch">
+
+        <input type="text" id="cgpaInput" placeholder="CGPA">
+
+        <input type="text" id="locationInput" placeholder="Location">
+         <input type="text"
+id="linkedinInput"
+placeholder="LinkedIn URL">
+
+<input type="text"
+id="githubInput"
+placeholder="GitHub URL">
+
+<input type="text"
+id="websiteInput"
+placeholder="Website URL">
+        <textarea id="skillsInput"
+        placeholder="Skills (comma separated)">
+        </textarea>
+
+        <div class="modal-buttons">
+
+            <button onclick="saveProfile()">
+                Save
+            </button>
+
+            <button onclick="closeModal()">
+                Cancel
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+
+function openModal(){
+
+const profile = JSON.parse(
+localStorage.getItem("profile")
+) || {};
+
+document.getElementById("nameInput").value =
+profile.name || "";
+
+document.getElementById("phoneInput").value =
+profile.phone || "";
+
+document.getElementById("collegeInput").value =
+profile.college || "";
+
+document.getElementById("branchInput").value =
+profile.branch || "";
+
+document.getElementById("cgpaInput").value =
+profile.cgpa || "";
+
+document.getElementById("locationInput").value =
+profile.location || "";
+
+document.getElementById("linkedinInput").value =
+profile.linkedin || "";
+
+document.getElementById("githubInput").value =
+profile.github || "";
+
+document.getElementById("websiteInput").value =
+profile.website || "";
+
+document.getElementById("skillsInput").value =
+profile.skills || "";
+
+document.getElementById("editModal").style.display = "flex";
+
+}
+
+function closeModal(){
+
+document.getElementById(
+"editModal"
+).style.display="none";
+
+}
+
+function saveProfile(){
+
+const profile = {
+
+name:
+document.getElementById("nameInput").value,
+
+phone:
+document.getElementById("phoneInput").value,
+
+college:
+document.getElementById("collegeInput").value,
+
+branch:
+document.getElementById("branchInput").value,
+
+cgpa:
+document.getElementById("cgpaInput").value,
+
+location:
+document.getElementById("locationInput").value,
+
+linkedin:
+document.getElementById("linkedinInput").value,
+
+github:
+document.getElementById("githubInput").value,
+
+website:
+document.getElementById("websiteInput").value,
+
+skills:
+document.getElementById("skillsInput").value
+
+};
+
+console.log("Profile Data:", profile);
+
+localStorage.setItem(
+"profile",
+JSON.stringify(profile)
+);
+const loggedUser = JSON.parse(
+localStorage.getItem("loggedInUser")
+);
+
+loggedUser.name = profile.name;
+
+localStorage.setItem(
+"loggedInUser",
+JSON.stringify(loggedUser)
+);
+
+loadProfile();
+
+closeModal();
+
+}
+
+function loadProfile(){
+
+const profile = JSON.parse(
+localStorage.getItem("profile")
+);
+
+if(!profile){
+
+const loggedUser = JSON.parse(
+localStorage.getItem("loggedInUser")
+);
+
+document.getElementById("fullName").innerText =
+profile.name || loggedUser?.name || "";
+
+document.getElementById("avatar").innerText =
+(loggedUser?.name || "S")
+.charAt(0)
+.toUpperCase();
+
+document.getElementById("avatar2").innerText =
+(loggedUser?.name || "S")
+.charAt(0)
+.toUpperCase();
+
+return;
+
+}
+
+document.getElementById("fullName").innerText =
+loggedUser?.name || "";
+
+document.getElementById("phoneText").innerText =
+profile.phone || "Not Added";
+
+document.getElementById("collegeText").innerText =
+profile.college || "Not Added";
+
+document.getElementById("branchText").innerText =
+profile.branch || "Not Added";
+
+document.getElementById("cgpaText").innerText =
+profile.cgpa || "Not Added";
+
+document.getElementById("locationText").innerText =
+profile.location || "Not Added";
+
+document.getElementById("fullName").innerText =
+loggedUser?.name || ""
+.charAt(0)
+.toUpperCase();
+
+document.getElementById("avatar2").innerText =
+(profile.name || "S")
+.charAt(0)
+.toUpperCase();
+document.getElementById("linkedinText").innerText =
+profile.linkedin || "Not Added";
+
+document.getElementById("githubText").innerText =
+profile.github || "Not Added";
+
+document.getElementById("websiteText").innerText =
+profile.website || "Not Added";
+document.getElementById("skillsContainer").innerHTML =
+profile.skills
+? profile.skills
+.split(",")
+.map(skill => `<span>${skill.trim()}</span>`)
+.join("")
+: "<span>No Skills Added</span>";
+}
+
+</script>
+<script>
+
+const loggedUser = JSON.parse(
+localStorage.getItem("loggedInUser")
+);
+
+if(loggedUser){
+
+    document.getElementById("email").innerText =
+    loggedUser.email || "";
+
+}
+
+loadProfile();
+
+</script>
+<script>
+function toggleSidebar(){
+
+    const sidebar = document.querySelector(".sidebar");
+    const overlay = document.getElementById("overlay");
+
+    sidebar.classList.toggle("show");
+    overlay.classList.toggle("show");
+
+}
+</script>
+
+<script>
+
+document.getElementById("overlay")
+.addEventListener("click", function(){
+
+    document.querySelector(".sidebar")
+    .classList.remove("show");
+
+    document.getElementById("overlay")
+    .classList.remove("show");
+
+});
+
+</script>
+
+<script>
+
+document.querySelectorAll(".sidebar a")
+.forEach(function(link){
+
+    link.addEventListener("click", function(){
+
+        document.querySelector(".sidebar")
+        .classList.remove("show");
+
+        document.getElementById("overlay")
+        .classList.remove("show");
+
+    });
+
+});
+
+</script>
+<script>
+function logout(){
+
+    localStorage.removeItem("loggedInUser");
+
+    window.location.href =
+    "../auth/login.html";
+
+}
+</script>
+</body>

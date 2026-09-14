@@ -1,0 +1,29 @@
+[
+  {
+    "organizer": "Unstop",
+    "title": "National Student Hackathons",
+    "description": "Participate in coding and innovation hackathons hosted by top companies, IITs, and universities across India.",
+    "prize": "Up to ₹1,00,000+",
+    "mode": "Online / Offline",
+    "deadline": "Check Website",
+    "link": "https://unstop.com/hackathons"
+  },
+  {
+    "organizer": "HackerEarth",
+    "title": "Developer & Hiring Hackathons",
+    "description": "Solve real-world coding challenges, compete in developer hackathons, and get noticed by leading tech companies.",
+    "prize": "Varies by Challenge",
+    "mode": "Online",
+    "deadline": "Ongoing",
+    "link": "https://www.hackerearth.com/challenges/hackathon/"
+  },
+  {
+    "organizer": "Devfolio",
+    "title": "Web3 & Student Hackathons",
+    "description": "Join India's leading hackathons, build innovative projects, receive mentorship, and compete for exciting prizes.",
+    "prize": "Up to ₹5,00,000+",
+    "mode": "Online / Hybrid",
+    "deadline": "Check Website",
+    "link": "https://devfolio.co/hackathons"
+  }
+]

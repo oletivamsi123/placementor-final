@@ -1,0 +1,40 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+:root{
+    --primary:#2563eb;
+    --secondary:#1e293b;
+    --bg:#f8fafc;
+    --card:#ffffff;
+    --text:#0f172a;
+    --border:#e2e8f0;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+}
+
+a{
+    text-decoration:none;
+}
+
+ul{
+    list-style:none;
+}
+
+.container{
+    padding:20px;
+}
+
+.card{
+    background:white;
+    border-radius:16px;
+    padding:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}

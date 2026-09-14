@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlaceMentor AI</title>
+
+    <link rel="stylesheet" href="assets/css/index.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            PlaceMentor
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="resume/index.html">Resume Analyzer</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+
+        <div class="nav-buttons">
+            <a href="auth/login.html" class="login-btn">
+                Login
+            </a>
+
+            <a href="auth/register.html" class="register-btn">
+                Register
+            </a>
+        </div>
+
+    </nav>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Your Complete
+                <span>Placement Companion</span>
+            </h1>
+
+            <p>
+                Analyze resumes, discover internships,
+                find jobs, join hackathons and track
+                your placement journey from one platform.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="resume/index.html" class="primary-btn">
+                    Analyze Resume
+                </a>
+
+                <a href="auth/register.html" class="secondary-btn">
+                    Get Started
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <div class="floating-card">
+                ATS Score: 92%
+            </div>
+
+            <div class="floating-card">
+                500+ Internships
+            </div>
+
+            <div class="floating-card">
+                150+ Companies
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FEATURES -->
+
+    <section class="features">
+
+        <h2>Everything You Need For Placements</h2>
+
+        <div class="feature-grid">
+
+            <div class="card">
+                <h3>Resume Analyzer</h3>
+                <p>
+                    AI-powered ATS scoring and resume improvement suggestions.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Internships</h3>
+                <p>
+                    Discover internships matching your skills and interests.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Jobs Portal</h3>
+                <p>
+                    Explore placement opportunities from top companies.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Hackathons</h3>
+                <p>
+                    Participate in coding competitions and innovation challenges.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Career Dashboard</h3>
+                <p>
+                    Track applications, ATS score and placement progress.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>AI Recommendations</h3>
+                <p>
+                    Personalized opportunities based on your profile.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CTA -->
+
+    <section class="cta">
+
+        <h2>
+            Start Building Your Career Today
+        </h2>
+
+        <p>
+            Join students preparing smarter for placements.
+        </p>
+
+        <a href="auth/register.html" class="cta-btn">
+            Create Free Account
+        </a>
+
+    </section>
+<script>
+
+function logout(){
+
+    localStorage.removeItem(
+        "loggedInUser"
+    );
+
+    window.location.href =
+    "../auth/index.html";
+
+}
+
+</script>
+</body>
+</html>

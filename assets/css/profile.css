@@ -1,0 +1,384 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f172a, #111827, #1e1b4b);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+}
+
+/* =========================================
+   DESKTOP FIX: HIDE MOBILE HEADER & TOGGLE
+   ========================================= */
+.mobile-header,
+.menu-btn {
+    display: none;
+}
+
+/* =========================================
+   MODALS
+   ========================================= */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .7);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    width: 500px;
+    background: #111827;
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-content input,
+.modal-content textarea {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #1f2937;
+    color: white;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.modal-buttons button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #3b82f6;
+    color: white;
+    cursor: pointer;
+}
+
+/* =========================================
+   SIDEBAR (DESKTOP)
+   ========================================= */
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 30px 20px;
+    z-index: 9999;
+    transition: left 0.3s ease;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar nav a {
+    text-decoration: none;
+    color: #cbd5e1;
+    padding: 14px 16px;
+    border-radius: 12px;
+    transition: .3s;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: rgba(59, 130, 246, .2);
+    color: white;
+}
+
+/* =========================================
+   MAIN CONTENT & TOPBAR
+   ========================================= */
+.main {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    padding: 35px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.topbar h1 {
+    font-size: 1.5rem;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #3b82f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   PROFILE HEADER
+   ========================================= */
+.profile-header {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.photo-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #3b82f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.profile-header h2 {
+    margin-bottom: 8px;
+}
+
+.profile-header p {
+    color: #94a3b8;
+    margin-bottom: 15px;
+}
+
+/* BUTTONS */
+.primary-btn,
+.edit-btn {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    background: #2563eb;
+}
+
+.edit-btn:hover {
+    opacity: .9;
+}
+
+/* =========================================
+   PROFILE GRID & CARDS
+   ========================================= */
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 25px;
+}
+
+.card h3 {
+    margin-bottom: 20px;
+    color: white;
+}
+
+.card p {
+    margin-bottom: 12px;
+    color: #cbd5e1;
+}
+
+/* SKILLS TAGS */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tags span {
+    padding: 8px 14px;
+    background: rgba(59, 130, 246, .2);
+    border-radius: 30px;
+    color: white;
+    font-size: .9rem;
+}
+
+/* RESUME BUTTON */
+.resume-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #3b82f6;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* PROGRESS BAR */
+.progress {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, .1);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.progress-fill {
+    width: 78%;
+    height: 100%;
+    background: #3b82f6;
+}
+
+/* =========================================
+   MOBILE & TABLET RESPONSIVE 
+   (Cleaned up into a single block)
+   ========================================= */
+@media (max-width: 900px) {
+    /* Show Mobile Header & Menu Button */
+    .mobile-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        min-height: 60px;
+        margin-bottom: 25px;
+        width: 100%;
+    }
+
+  .menu-btn {
+        display: block;
+        position: fixed; /* ✅ Fixed position to prevent scrolling away */
+        left: 15px;
+        top: 15px;
+        z-index: 10001; /* Above sidebar */
+        background: #3b82f6;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 10px 14px;
+        font-size: 22px;
+        cursor: pointer;
+    }
+    .mobile-logo {
+        font-size: 24px;
+        font-weight: 700;
+        color: white;
+        text-align: center;
+    }
+
+    /* Turn Sidebar into Off-Canvas Slide Menu */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -280px; /* Hidden initially */
+        width: 260px;
+        height: 100vh;
+        background: rgba(15, 23, 42, 0.98);
+        overflow-y: auto;
+        z-index: 9999;
+        display: block;
+        padding-top: 70px;
+    }
+
+    .sidebar.show {
+        left: 0;
+    }
+
+    .sidebar .logo {
+        display: none; /* Hide desktop logo inside the sliding menu */
+    }
+
+    /* Adjust Main Content Area */
+    .main {
+        margin-left: 0;
+        width: 100%;
+        padding: 15px;
+    }
+
+    /* Adjust Topbar */
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    /* Profile Specific Mobile Adjustments */
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Hide the Avatar on Mobile (Your custom rule) */
+    .profile-avatar,
+    .avatar {
+        display: none !important;
+    }
+}
+/* Overlay */
+
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background:rgba(0,0,0,.45);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:9998;
+}
+
+.overlay.show{
+    opacity:1;
+    visibility:visible;
+}

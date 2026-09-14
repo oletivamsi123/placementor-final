@@ -1,0 +1,38 @@
+[
+  {
+    "type": "AI Workshop",
+    "title": "IBM SkillsBuild - Applied AI Agents, Chatbots & RAG",
+    "description": "Learn to build AI agents, chatbots, and Retrieval-Augmented Generation (RAG) applications through hands-on sessions.",
+    "date": "Check Website",
+    "mode": "Online",
+    "location": "Virtual",
+    "link": "https://www.naaic.ai/events/ibm-skillsbuild-applied-ai-agents-chatbots-rag"
+  },
+  {
+    "type": "Technology Summit",
+    "title": "Netech Summit Workshop",
+    "description": "Attend expert-led workshops on AI, cloud computing, cybersecurity, and emerging technologies.",
+    "date": "Check Website",
+    "mode": "Hybrid",
+    "location": "India",
+    "link": "https://workshop.netechsummit.org/"
+  },
+  {
+    "type": "AI Workshop",
+    "title": "IBM SkillsBuild - Generative AI & AI Agents",
+    "description": "Explore Generative AI, prompt engineering, AI agents, and practical applications with IBM SkillsBuild.",
+    "date": "Check Website",
+    "mode": "Online",
+    "location": "Virtual",
+    "link": "https://www.naaic.ai/events/ibm-skillsbuild-generative-ai-and-ai-agents"
+  },
+  {
+    "type": "Research Workshop",
+    "title": "BSERC Technical Workshop",
+    "description": "Participate in research-oriented technical workshops covering AI, machine learning, and modern software technologies.",
+    "date": "Check Website",
+    "mode": "Online",
+    "location": "India",
+    "link": "https://bserc.org/workshops/30"
+  }
+]

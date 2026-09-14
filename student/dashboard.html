@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Events | PlaceMentor AI</title>
+
+<link rel="stylesheet" href="../assets/css/events.css">
+<link rel="stylesheet" href="../assets/css/dashboard.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <script>
+
+const user =
+localStorage.getItem("loggedInUser");
+
+if(!user){
+
+    window.location.href =
+    "../auth/login.html";
+
+}
+
+</script>
+<div class="sidebar">
+
+    <div class="logo">
+        PLACEMENTOR
+    </div>
+
+    <nav>
+        <a class="active" href="dashboard.html">Dashboard</a>
+        <a href="../resume/index.html">Resume Analyzer</a>
+        <a href="jobs.html">Jobs</a>
+        <a href="internships.html">Internships</a>
+        <a href="events.html">Events</a>
+        <a href="hackathons.html">Hackathons</a>
+        <a href="profile.html">Profile</a>
+        <a href="saved.html">Saved</a>
+        <a href="recommendations.html">Recommendations</a>
+        <a href="#" onclick="logout()">
+Logout
+</a>
+    </nav>
+
+</div>
+<div class="overlay" id="overlay"></div>
+
+<div class="main">
+
+<div class="mobile-header">
+
+    <button class="menu-btn"
+    onclick="toggleSidebar()">
+        ☰
+    </button>
+
+    <div class="mobile-logo">
+        PLACEMENTOR
+    </div>
+
+    
+
+</div>
+
+<header class="topbar">
+
+        <div>
+            <div class="welcome-section">
+
+    <h1 class="page-title">
+        Welcome,
+        <span id="username"></span>
+    </h1>
+
+    <p class="page-subtitle">
+        Track your placement journey and discover opportunities tailored to your profile.
+    </p>
+
+</div>
+        </div>
+
+        <div class="top-actions">
+
+            <input
+                type="text"
+                placeholder="Search opportunities..."
+                class="search-box">
+
+      <div class="profile-avatar" onclick="goToProfile()">
+    <span id="avatar"></span>
+</div>
+
+        </div>
+
+    </header>
+
+    <section class="hero-banner">
+
+        <div>
+
+            <h2>
+                Build Your Career Faster
+            </h2>
+
+            <p>
+                Improve your profile, increase ATS score,
+                discover internships and placement opportunities.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="../resume/index.html">
+                    <button class="primary-btn">
+                        Analyze Resume
+                    </button>
+                </a>
+
+                <a href="profile.html">
+                    <button class="secondary-btn">
+                        Complete Profile
+                    </button>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+            <h4>ATS Score</h4>
+            <h2>82%</h2>
+        </div>
+
+        <div class="stat-card">
+            <h4>Jobs</h4>
+            <h2>120</h2>
+        </div>
+
+        <div class="stat-card">
+            <h4>Internships</h4>
+            <h2>50</h2>
+        </div>
+
+        <div class="stat-card">
+            <h4>Events</h4>
+            <h2>25</h2>
+        </div>
+
+    </section>
+
+    <div class="dashboard-grid">
+
+        <section class="opportunities">
+
+            <h2>Recommended Opportunities</h2>
+
+           <div class="job-card">
+
+    <span class="company-tag">
+        Google
+    </span>
+
+    <h3>
+        Frontend Developer Intern
+    </h3>
+
+    <p>
+        Hyderabad
+    </p>
+
+</div>
+
+           <div class="job-card">
+
+    <span class="company-tag">
+        Google
+    </span>
+
+    <h3>
+        Frontend Developer Intern
+    </h3>
+
+    <p>
+        Hyderabad
+    </p>
+
+</div>
+
+           <div class="job-card">
+
+    <span class="company-tag">
+        Google
+    </span>
+
+    <h3>
+        Frontend Developer Intern
+    </h3>
+
+    <p>
+        Hyderabad
+    </p>
+
+</div>
+
+        </section>
+
+        <aside class="right-panel">
+
+            <div class="panel-card">
+
+                <h3>Profile Completion</h3>
+
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+
+                <p>78% Completed</p>
+
+            </div>
+
+            <div class="panel-card">
+
+                <h3>Upcoming Deadlines</h3>
+
+                <ul>
+                    <li>Google Internship - 2 Days</li>
+                    <li>HackIndia - 5 Days</li>
+                    <li>AWS Workshop - Tomorrow</li>
+                </ul>
+
+            </div>
+
+            <div class="panel-card">
+
+                <h3>Career Insights</h3>
+
+                <p>
+                    Complete your profile and improve ATS score
+                    for better recommendations.
+                </p>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+</div>
+<script>
+
+function logout(){
+
+    localStorage.removeItem(
+        "loggedInUser"
+    );
+
+    window.location.href =
+    "../auth/login.html";
+
+}
+
+</script>
+<script>
+
+const loggedUser =
+JSON.parse(
+localStorage.getItem("loggedInUser")
+);
+
+if(loggedUser){
+
+document.getElementById(
+"username"
+).innerText =
+loggedUser.name || "Student";
+
+document.getElementById(
+"avatar"
+).innerText =
+(loggedUser.name || "S")
+.charAt(0)
+.toUpperCase();
+
+const mobileAvatar =
+document.getElementById("mobileAvatar");
+
+if(mobileAvatar){
+    mobileAvatar.innerText =
+    (loggedUser.name || "S")
+    .charAt(0)
+    .toUpperCase();
+}
+}
+
+</script>
+<script>
+function goToProfile(){
+    window.location.href = "profile.html";
+}
+</script>
+<script>
+function toggleSidebar(){
+
+    const sidebar = document.querySelector(".sidebar");
+    const overlay = document.getElementById("overlay");
+    const logo = document.querySelector(".mobile-logo");
+
+    sidebar.classList.toggle("show");
+    overlay.classList.toggle("show");
+    logo.classList.toggle("hide-logo");
+}
+const overlay = document.getElementById("overlay");
+
+overlay.addEventListener("click", function(){
+
+    document.querySelector(".sidebar")
+    .classList.remove("show");
+
+    overlay.classList.remove("show");
+
+    document.querySelector(".mobile-logo")
+    .classList.remove("hide-logo");
+
+});
+
+</script>
+
+</body>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Recommendations | PlaceMentor AI</title>
+
+<link rel="stylesheet" href="../assets/css/recommendations.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body><script>
+
+const user =
+localStorage.getItem("loggedInUser");
+
+if(!user){
+
+    window.location.href =
+    "../auth/index.html";
+
+}
+
+</script>
+
+<div class="sidebar">
+
+    <div class="logo">
+        PLACEMENTOR
+    </div>
+
+    <nav>
+
+        <a href="dashboard.html">Dashboard</a>
+
+        <a href="../resume/index.html">
+            Resume Analyzer
+        </a>
+
+        <a href="jobs.html">Jobs</a>
+
+        <a href="internships.html">Internships</a>
+
+        <a href="events.html">Events</a>
+
+        <a href="hackathons.html">Hackathons</a>
+
+        <a href="profile.html">Profile</a>
+
+             <a href="saved.html">
+    Saved
+</a>
+
+<a href="recommendations.html">
+    Recommendations
+</a>
+
+<a href="#" onclick="logout()">
+    Logout
+</a>
+
+    </nav>
+
+</div>
+<div class="overlay" id="overlay"></div>
+<div class="main">
+<div class="mobile-header">
+
+    <button class="menu-btn" onclick="toggleSidebar()">
+        ☰
+    </button>
+
+    <div class="mobile-logo">
+        PLACEMENTOR
+    </div>
+
+</div>
+    <div class="topbar">
+
+        <h1>AI Career Recommendations</h1>
+
+    </div>
+
+    <div class="insights-grid">
+
+        <div class="insight-card">
+
+            <h3>ATS Score</h3>
+
+            <h1>82%</h1>
+
+            <p>
+                Improve Skills section to reach 90+
+            </p>
+
+        </div>
+
+        <div class="insight-card">
+
+            <h3>Profile Strength</h3>
+
+            <h1>78%</h1>
+
+            <p>
+                Add projects and certifications
+            </p>
+
+        </div>
+
+        <div class="insight-card">
+
+            <h3>Job Matches</h3>
+
+            <h1>120</h1>
+
+            <p>
+                Based on your profile
+            </p>
+
+        </div>
+
+    </div>
+
+    <h2 class="section-title">
+        Recommended Jobs
+    </h2>
+
+    <div class="recommendation-grid">
+
+        <div class="recommend-card">
+
+            <h3>Software Engineer</h3>
+
+            <p>Google • Hyderabad</p>
+
+            <button>View Opportunity</button>
+
+        </div>
+
+        <div class="recommend-card">
+
+            <h3>Java Developer</h3>
+
+            <p>TCS • Bangalore</p>
+
+            <button>View Opportunity</button>
+
+        </div>
+
+    </div>
+
+    <h2 class="section-title">
+        Recommended Internships
+    </h2>
+
+    <div class="recommendation-grid">
+
+        <div class="recommend-card">
+
+            <h3>Frontend Developer Intern</h3>
+
+            <p>Microsoft • Remote</p>
+
+            <button>View Opportunity</button>
+
+        </div>
+
+        <div class="recommend-card">
+
+            <h3>ML Intern</h3>
+
+            <p>Amazon • Remote</p>
+
+            <button>View Opportunity</button>
+
+        </div>
+
+    </div>
+
+    <h2 class="section-title">
+        Skill Gap Analysis
+    </h2>
+
+    <div class="skill-card">
+
+        <p>Current Skills:</p>
+
+        <div class="skills">
+
+            <span>Java</span>
+            <span>Python</span>
+            <span>SQL</span>
+
+        </div>
+
+        <br>
+
+        <p>Recommended Skills:</p>
+
+        <div class="skills">
+
+            <span>React</span>
+            <span>Spring Boot</span>
+            <span>AWS</span>
+            <span>Docker</span>
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+function toggleSidebar(){
+
+    const sidebar = document.querySelector(".sidebar");
+    const overlay = document.getElementById("overlay");
+
+    sidebar.classList.toggle("show");
+    overlay.classList.toggle("show");
+
+}
+</script>
+
+<script>
+
+document.getElementById("overlay")
+.addEventListener("click", function(){
+
+    document.querySelector(".sidebar")
+    .classList.remove("show");
+
+    document.getElementById("overlay")
+    .classList.remove("show");
+
+});
+
+</script>
+
+<script>
+
+document.querySelectorAll(".sidebar a")
+.forEach(function(link){
+
+    link.addEventListener("click", function(){
+
+        document.querySelector(".sidebar")
+        .classList.remove("show");
+
+        document.getElementById("overlay")
+        .classList.remove("show");
+
+    });
+
+});
+
+</script>
+<script>
+function logout(){
+
+    localStorage.removeItem("loggedInUser");
+
+    window.location.href =
+    "../auth/login.html";
+
+}
+</script>
+</body>
+</html>

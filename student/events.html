@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Events | PlaceMentor AI</title>
+
+<link rel="stylesheet" href="../assets/css/events.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<script>
+
+const user =
+localStorage.getItem("loggedInUser");
+
+if(!user){
+
+    window.location.href =
+    "../auth/index.html";
+
+}
+
+</script>
+<div class="sidebar">
+
+    <div class="logo">
+        PLACEMENTOR
+    </div>
+
+    <nav>
+
+        <a href="dashboard.html">Dashboard</a>
+
+        <a href="../resume/index.html">
+            Resume Analyzer
+        </a>
+
+        <a href="jobs.html">
+            Jobs
+        </a>
+
+        <a href="internships.html">
+            Internships
+        </a>
+
+       <a href="events.html" onclick="toggleSidebar()">
+    Events
+</a>
+
+        <a href="hackathons.html">
+            Hackathons
+        </a>
+
+        <a href="profile.html">
+            Profile
+        </a>
+
+             <a href="saved.html">
+    Saved
+</a>
+
+<a href="recommendations.html">
+    Recommendations
+</a>
+
+<a href="#" onclick="logout()">
+    Logout
+</a>
+
+    </nav>
+
+</div>
+<div class="overlay" id="overlay"></div>
+
+<div class="main">
+<div class="mobile-header">
+
+    <button class="menu-btn"
+    onclick="toggleSidebar()">
+        ☰
+    </button>
+
+    <div class="mobile-logo">
+        PLACEMENTOR
+    </div>
+
+</div>
+    <div class="topbar">
+
+        <h1>Technical Events</h1>
+
+        <input
+        type="text"
+        placeholder="Search events..."
+        class="search-box">
+
+    </div>
+
+    <div class="filters">
+
+        <select>
+            <option>Category</option>
+            <option>Workshop</option>
+            <option>Webinar</option>
+            <option>Conference</option>
+            <option>Seminar</option>
+        </select>
+
+        <select>
+            <option>Mode</option>
+            <option>Online</option>
+            <option>Offline</option>
+            <option>Hybrid</option>
+        </select>
+
+    </div>
+
+    <div class="events-grid" id="eventsContainer"></div>
+
+</div>
+<script src="../assets/js/events.js"></script>
+<script>
+function toggleSidebar(){
+
+    const sidebar = document.querySelector(".sidebar");
+    const overlay = document.getElementById("overlay");
+    const logo = document.querySelector(".mobile-logo");
+
+    sidebar.classList.toggle("show");
+    overlay.classList.toggle("show");
+    logo.classList.toggle("hide-logo");
+}
+const overlay = document.getElementById("overlay");
+
+overlay.addEventListener("click", function(){
+
+    document.querySelector(".sidebar")
+    .classList.remove("show");
+
+    overlay.classList.remove("show");
+
+    document.querySelector(".mobile-logo")
+    .classList.remove("hide-logo");
+
+});
+function goToProfile(){
+    window.location.href =
+    "profile.html";
+}
+</script>
+<script>
+document
+.querySelectorAll(".sidebar a")
+.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        document
+        .querySelector(".sidebar")
+        .classList.remove("show");
+
+    });
+
+});
+</script>
+<script>
+function logout(){
+
+    localStorage.removeItem("loggedInUser");
+
+    window.location.href =
+    "../auth/login.html";
+
+}
+</script>
+</body>
+</html>
+

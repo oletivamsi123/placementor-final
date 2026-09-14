@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Analyzer</title>
+    
+    <!-- External Libraries via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.21/mammoth.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <!-- Link to our separate CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   <div class="top-nav">
+    <a href="../student/dashboard.html" class="back-btn">
+        <span>←</span> Back to Dashboard
+    </a>
+   </div>
+   
+
+    <!-- Loading Spinner -->
+    <div id="loading">
+    <div class="spinner"></div>
+
+    <h2 id="loading-text">Analyzing Resume...</h2>
+
+    <div class="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+</div>
+
+    <nav class="navbar">
+        <a href="#" class="logo" onclick="location.reload()">Resume<span>Analyzer</span></a>
+        <div>
+            
+            <button id="themeToggle" class="theme-toggle">☀️</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- UPLOAD SCREEN -->
+        <div id="upload-screen">
+            <div class="hero">
+                <h1>AI Resume Analyzer</h1>
+                <p>Upload your resume directly in your browser. No servers, no installations, 100% private and instant.</p>
+            </div>
+
+            <div class="upload-card" id="dropZone" onclick="document.getElementById('fileInput').click()">
+               <div class="resume-preview">
+
+    <div class="resume-card">
+        <div class="resume-line long"></div>
+        <div class="resume-line"></div>
+        <div class="resume-line short"></div>
+
+        <div class="resume-line long"></div>
+        <div class="resume-line"></div>
+
+        <div class="scan-bar"></div>
+    </div>
+  <div class="mini-score">
+    <span id="fakeScore">81%</span>
+    <p>ATS Match Score</p>
+</div>
+
+<button class="upload-btn">
+    Upload Resume
+</button>
+</div>
+                <h3>Drag & Drop your resume here</h3>
+                <p>Or click to browse (PDF, DOCX)</p>
+                <input type="file" id="fileInput" accept=".pdf,.docx">
+            </div>
+            
+            <div id="error-msg" style="color: var(--danger); margin-top: 20px;"></div>
+        </div>
+
+        <!-- RESULTS SCREEN -->
+        <div id="results-screen">
+            <div class="report-header">
+                <div>
+                    <h2>Analysis Report: <span id="res-filename" style="color: var(--accent);"></span></h2>
+                    <p>Phone: <span id="res-phone"></span></p>
+                </div>
+               
+   <div class="report-rating">
+
+    <h3>Rating</h3>
+
+    <h2 id="res-rating"
+        style="color: var(--success);"></h2>
+
+    <button
+        id="downloadBtn"
+        class="btn btn-outline"
+        style="display:none; margin:15px 0;"
+        onclick="downloadPDF()">
+        Download Report
+    </button>
+
+    <h4 style="margin-top:15px;">
+        Predicted Role
+    </h4>
+
+    <p id="predicted-role"></p>
+
+</div>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Left Col -->
+                <div>
+                    <div class="glass-panel" style="text-align: center;">
+                        <h3>Overall ATS Score</h3>
+                        <div class="score-circle">
+                            <h2><span id="res-score"></span>%</h2>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel">
+                        <h3>Score Breakdown</h3>
+                        <div id="score-bars"></div>
+                    </div>
+                </div>
+
+                <!-- Right Col -->
+                <div>
+                    <div class="glass-panel">
+                        <h3>Skill Analysis</h3>
+                        <h4 style="margin-top: 15px;">Detected Technical Skills</h4>
+                        <div id="detected-skills" class="chip-container"></div>
+                        
+                        <h4 style="margin-top: 20px;">Common Missing Skills</h4>
+                        <div id="missing-skills" class="chip-container"></div>
+                    </div>
+
+                    <div class="strength-grid">
+                        <div class="glass-panel">
+                            <h3>Strengths</h3>
+                            <ul id="strengths-list" class="custom-list success"></ul>
+                        </div>
+                        <div class="glass-panel">
+                            <h3>Weaknesses</h3>
+                            <ul id="weaknesses-list" class="custom-list danger"></ul>
+                        </div>
+                    </div>
+
+                   <div class="glass-panel suggestion-panel">
+                        <h3>Improvement Suggestions</h3>
+                        <ul id="suggestions-list" class="custom-list"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to our separate JS file -->
+    <script src="script.js"></script>
+</body>
+</html>
